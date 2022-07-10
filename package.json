@@ -1,0 +1,25 @@
+{
+  "name": "cypress-ez-lib",
+  "version": "1.0.0",
+  "description": "Cypress testing made ez",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alamhamim/cypress-ez-lib.git"
+  },
+  "keywords": [
+    "cypress-ez-lib"
+  ],
+  "author": "Hamim Alam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alamhamim/cypress-ez-lib/issues"
+  },
+  "homepage": "https://github.com/alamhamim/cypress-ez-lib#readme",
+  "devDependencies": {
+    "cypress": "^10.3.0"
+  }
+}
