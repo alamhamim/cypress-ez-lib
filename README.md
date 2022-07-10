@@ -9,10 +9,6 @@ Use the package manager NPM to install cypress-ez-lib.
 ```bash
 npm install cypress-ez-lib
 ```
-```bash
-npm install
-```
-
 ## Usage
 
 ```javascript
