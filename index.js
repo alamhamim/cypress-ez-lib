@@ -45,6 +45,12 @@ var cypressEzLib = function(){
             }
         })
     }
+    this.goTo = function(string){
+        cy.visit(string);
+        cy.title().then(function(title){
+            cy.log("Landed on >>>>>>>>>>>>>>>>>>>>"+title);
+        })
+    }
     
 }
 module.exports = new cypressEzLib();
