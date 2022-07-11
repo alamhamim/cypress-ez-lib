@@ -1,6 +1,6 @@
 {
   "name": "cypress-ez-lib",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Cypress testing made ez",
   "main": "index.js",
   "scripts": {
