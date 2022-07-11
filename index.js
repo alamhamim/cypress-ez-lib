@@ -51,6 +51,36 @@ var cypressEzLib = function(){
             cy.log("Landed on >>>>>>>>>>>>>>>>>>>>"+title);
         })
     }
-    
+
+    this.EZTableClickByClassName = function(ele, row, col){
+        cy.get("table[class='"+ele+"'] tr:nth-child("+row+")>td:nth-child("+col+")").should("be.visible").then(function(visible){
+            if (visible) {
+                cy.log("TABLE FOUND REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE...... Clicking in sec!!!!");
+                cy.wait(1000);
+                cy.get("table[class='"+ele+"'] >tr:nth-child("+row+")>td:nth-child("+col+")").click();
+            } else {
+                throw new Error("TABLE LAGGGGGGG GAYEEEEEEEEEEEEEEEEEEEEEEEEEEEEE REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            }
+        });
+    }
+    this.EZTableClickById = function(ele, row, col){
+        cy.get("table[class='"+ele+"'] tr:nth-child("+row+")>td:nth-child("+col+")").should("be.visible").then(function(visible){
+            if (visible) {
+                cy.log("TABLE FOUND REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE...... Clicking in sec!!!!");
+                cy.wait(1000);
+                cy.get("table[class='"+ele+"'] >tr:nth-child("+row+")>td:nth-child("+col+")").click();
+            } else {
+                throw new Error("TABLE LAGGGGGGG GAYEEEEEEEEEEEEEEEEEEEEEEEEEEEEE REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            }
+        });
+    }
+    this.EZTableTextById = function(ele, row, col){
+        return cy.get("table[id='"+ele+"'] tr:nth-child("+row+")>td:nth-child("+col+")").invoke("text");
+    }
+    this.verifyTitle = function(exTitle){
+        cy.title().then(function(title){
+            expect(title).eq(exTitle);
+        });
+    }
 }
 module.exports = new cypressEzLib();
