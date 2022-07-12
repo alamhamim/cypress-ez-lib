@@ -1,25 +1,39 @@
 /// <reference types="cypress" />
 var cypressEzLib = function(){
 
+    var time = 40000;
+
     this.clickById = function(id){
-        cy.get("#"+id).click();
+        cy.get("#"+id, {timeout: time}).should("be.visible").then(function(visible){
+            if (visible) {
+                cy.get("#"+id).click();
+            } else {
+                throw new Error("NO Such a element found!!!!!!!!!!!!!!!");
+            }
+        });
     }
     this.clickByCss = function(css){
-        cy.get(css).click();
+        cy.get(css, {timeout: time}).should("be.visible").then(function(visible){
+            if (visible) {
+                cy.get(css).click();
+            } else {
+                throw new Error("NO Such a element found!!!!!!!!!!!!!!!");
+            }
+        })
     }
 
     this.isDisplayed = function(ele){
-        return cy.get(ele).should("be.visible");
+        return cy.get(ele, {timeout: time}).should("be.visible");
     }
     this.typeById = function(ele, text){
-        cy.get("#"+ele).clear().type(text);
+        cy.get("#"+ele, {timeout: time}).clear().type(text);
     }
     this.typeByCss = function(ele, text){
-        cy.get(ele).clear().type(text);
+        cy.get(ele, {timeout: time}).clear().type(text);
     }
 
     this.getTextById = function(ele){
-        return cy.get("#"+ele).invoke("text");
+        return cy.get("#"+ele, {timeout: time}).invoke("text");
     }
 
     this.getTextByCss = function(ele){
